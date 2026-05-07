@@ -28,7 +28,7 @@ export default function Navbar() {
     open: { 
       clipPath: "circle(150% at 90% 5%)", 
       opacity: 1,
-      transition: { duration: 0.8, ease: [0.85, 0, 0.15, 1] } 
+      transition: { duration: 0.8, ease: [0.85, 0, 0.15, 1] as const } 
     }
   };
 
@@ -38,7 +38,7 @@ export default function Navbar() {
       opacity: 1,
       y: 0,
       rotate: 0,
-      transition: { delay: 0.3 + i * 0.1, duration: 0.7, ease: [0.85, 0, 0.15, 1] }
+      transition: { delay: 0.3 + i * 0.1, duration: 0.7, ease: [0.85, 0, 0.15, 1] as const }
     })
   };
 

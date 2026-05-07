@@ -27,7 +27,7 @@ export default function PageTransition({ children }: { children: React.ReactNode
               initial={{ y: "0%" }}
               animate={{ y: "-100%" }}
               exit={{ y: "0%" }}
-              transition={{ duration: 1, ease: [0.85, 0, 0.15, 1], delay: isFirstMount ? 1.5 + (i * 0.08) : (i * 0.08) }}
+              transition={{ duration: 1, ease: [0.85, 0, 0.15, 1] as const, delay: isFirstMount ? 1.5 + (i * 0.08) : (i * 0.08) }}
             />
           ))}
           {isFirstMount && (
@@ -40,7 +40,7 @@ export default function PageTransition({ children }: { children: React.ReactNode
               <motion.div
                 initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 1, ease: [0.85, 0, 0.15, 1] }}
+                transition={{ duration: 1, ease: [0.85, 0, 0.15, 1] as const }}
                 className="text-white text-[3rem] md:text-[6rem] font-black tracking-tighter uppercase"
               >
                 Emparial
@@ -54,7 +54,7 @@ export default function PageTransition({ children }: { children: React.ReactNode
           initial={{ opacity: 0, y: 60, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -40, scale: 0.98 }}
-          transition={{ duration: 1.2, ease: [0.85, 0, 0.15, 1], delay: isFirstMount ? 1.8 : 0.4 }}
+          transition={{ duration: 1.2, ease: [0.85, 0, 0.15, 1] as const, delay: isFirstMount ? 1.8 : 0.4 }}
         >
           {children}
         </motion.div>

@@ -29,7 +29,7 @@ export default function Reveal({
       transition={{ 
         duration, 
         delay, 
-        ease: [0.85, 0, 0.15, 1] 
+        ease: [0.85, 0, 0.15, 1] as const
       }}
     >
       {children}

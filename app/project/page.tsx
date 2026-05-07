@@ -14,7 +14,7 @@ export default function ProjectPage() {
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 60, scale: 0.95 },
-    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 1.2, ease: [0.85, 0, 0.15, 1] } }
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 1.2, ease: [0.85, 0, 0.15, 1] as const } }
   };
 
   return (
