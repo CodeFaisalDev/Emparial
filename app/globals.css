@@ -19,8 +19,13 @@
     }
   }
 
+  @media (pointer: fine) {
+    * {
+      cursor: none !important;
+    }
+  }
+
   * {
-    cursor: none !important;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none;  /* IE and Edge */
   }

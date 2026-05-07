@@ -24,16 +24,21 @@ export default function Navbar() {
   }, []);
 
   const menuVariants = {
-    closed: { opacity: 0, y: "-100%" },
-    open: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] as const } }
+    closed: { clipPath: "circle(0% at 90% 5%)", opacity: 0 },
+    open: { 
+      clipPath: "circle(150% at 90% 5%)", 
+      opacity: 1,
+      transition: { duration: 0.8, ease: [0.85, 0, 0.15, 1] } 
+    }
   };
 
   const linkVariants = {
-    closed: { opacity: 0, y: 20 },
+    closed: { opacity: 0, y: 40, rotate: 5 },
     open: (i: number) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: 0.3 + i * 0.1, duration: 0.5, ease: "easeOut" as const }
+      rotate: 0,
+      transition: { delay: 0.3 + i * 0.1, duration: 0.7, ease: [0.85, 0, 0.15, 1] }
     })
   };
 

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Magnetic from "./Magnetic";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import Reveal from "./Reveal";
 
 export default function Footer() {
   return (
@@ -13,7 +14,7 @@ export default function Footer() {
         {/* Top Section: CTA & Newsletter */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-16 z-10 flex-grow">
           
-          <div className="max-w-2xl">
+          <Reveal className="max-w-2xl">
             <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-6 md:mb-8 tracking-tight leading-[1.1]">
               Ready to craft<br />your future dwelling?
             </h2>
@@ -30,9 +31,9 @@ export default function Footer() {
                 <ArrowUpRight className="w-6 h-6" />
               </button>
             </form>
-          </div>
+          </Reveal>
           
-          <div className="flex flex-col gap-12 lg:items-end text-white/80">
+          <Reveal delay={0.2} className="flex flex-col gap-12 lg:items-end text-white/80">
             <div className="flex flex-col gap-4 lg:text-right">
               <span className="text-white/40 uppercase tracking-widest text-xs font-bold mb-2">Socials</span>
               {['Instagram', 'LinkedIn', 'Twitter', 'Behance'].map(social => (
@@ -48,7 +49,7 @@ export default function Footer() {
               <p className="text-lg">120 Architecture Ave,<br />Design District, NY 10001</p>
               <a href="mailto:hello@emparial.com" className="text-lg hover:text-white transition-colors underline underline-offset-4">hello@emparial.com</a>
             </div>
-          </div>
+          </Reveal>
         </div>
 
         {/* Bottom Section: Links & Massive Text */}
@@ -68,11 +69,11 @@ export default function Footer() {
           </div>
 
           {/* Huge Typography */}
-          <div className="w-full overflow-hidden border-t border-white/10 pt-8 flex justify-center">
+          <Reveal delay={0.4} className="w-full overflow-hidden border-t border-white/10 pt-8 flex justify-center">
             <h1 className="text-[15vw] leading-none font-black tracking-tighter text-white opacity-90 select-none">
               EMPARIAL
             </h1>
-          </div>
+          </Reveal>
         </div>
 
         {/* Abstract Background Elements */}

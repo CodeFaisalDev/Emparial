@@ -9,8 +9,8 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   const fadeInUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const } }
+    hidden: { opacity: 0, y: 60, scale: 0.95 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 1.2, ease: [0.85, 0, 0.15, 1] as const } }
   };
 
   return (

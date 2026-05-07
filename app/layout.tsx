@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} antialiased selection:bg-white selection:text-navy`}>
+      <body className={`${manrope.className} antialiased selection:bg-white selection:text-navy`}>
         <SmoothScroll>
           <CustomCursor />
           <CustomScrollbar />
