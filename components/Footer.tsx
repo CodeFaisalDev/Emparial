@@ -8,13 +8,13 @@ import { ArrowUpRight } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="px-4 pb-4 mt-12">
-      <div className="bg-navy rounded-[2.5rem] p-12 lg:p-24 flex flex-col min-h-[80vh] relative overflow-hidden">
+      <div className="bg-navy rounded-[1.5rem] md:rounded-[2.5rem] p-8 md:p-12 lg:p-24 flex flex-col min-h-[60vh] md:min-h-[80vh] relative overflow-hidden">
         
         {/* Top Section: CTA & Newsletter */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-16 z-10 flex-grow">
           
           <div className="max-w-2xl">
-            <h2 className="text-4xl lg:text-6xl font-bold text-white mb-8 tracking-tight leading-[1.1]">
+            <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-6 md:mb-8 tracking-tight leading-[1.1]">
               Ready to craft<br />your future dwelling?
             </h2>
             <p className="text-white/60 text-lg max-w-md font-light mb-12">
@@ -52,16 +52,16 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section: Links & Massive Text */}
-        <div className="w-full flex flex-col z-10 mt-24">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8 text-white/50 text-sm">
+        <div className="w-full flex flex-col z-10 mt-16 md:mt-24">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8 text-white/50 text-sm text-center md:text-left">
             <span>© 2026 Emparial. All Rights Reserved.</span>
-            <div className="flex gap-8">
+            <div className="flex flex-wrap justify-center gap-4 md:gap-8">
               <Link href="/about" className="hover:text-white transition-colors">About Us</Link>
               <Link href="/project" className="hover:text-white transition-colors">Projects</Link>
               <Link href="/faqs" className="hover:text-white transition-colors">FAQs</Link>
               <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
             </div>
-            <div className="flex gap-6">
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
               <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
               <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
             </div>

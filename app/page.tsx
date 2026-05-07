@@ -26,8 +26,8 @@ export default function Home() {
         >
           {/* Mobile layout */}
           <div className="lg:hidden flex flex-col gap-4">
-            <div className="order-1 bg-white rounded-[2rem] p-8 flex flex-col justify-between overflow-hidden relative">
-              <h1 className="text-[2.75rem] font-bold tracking-tighter leading-[1.05] mb-8 relative z-10">
+            <div className="order-1 bg-white rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between overflow-hidden relative">
+              <h1 className="text-4xl sm:text-[2.75rem] font-bold tracking-tighter leading-[1.05] mb-6 sm:mb-8 relative z-10">
                 We craft the<br />future dwelling.
               </h1>
               <motion.div
@@ -38,14 +38,14 @@ export default function Home() {
                 <Image src="/images/main.png" alt="Modern Architecture" fill className="object-cover" priority />
               </motion.div>
             </div>
-            <div className="order-2 bg-white rounded-[2rem] p-8 flex flex-col justify-center min-h-[200px]">
+            <div className="order-2 bg-white rounded-[2rem] p-6 sm:p-8 flex flex-col justify-center min-h-[200px]">
               <span className="text-navy/60 text-sm font-semibold mb-2">Capital raised</span>
-              <h2 className="text-4xl font-bold mb-4 tracking-tight">$3.5M+</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4 tracking-tight">$3.5M+</h2>
               <p className="text-navy/70 text-sm leading-relaxed max-w-[280px]">
                 Crafted for your comfort, to enhance the beauty of your present lifestyle but also paves the way for a more aesthetically pleasing and harmonious future.
               </p>
             </div>
-            <div className="order-3 bg-white rounded-[2rem] p-8 flex flex-col justify-center min-h-[200px]">
+            <div className="order-3 bg-white rounded-[2rem] p-6 sm:p-8 flex flex-col justify-center min-h-[200px]">
               <span className="text-navy/60 text-sm font-semibold mb-4">Introduction</span>
               <h2 className="text-2xl font-medium mb-8 leading-[1.15] tracking-tight">
                 A vision for<br />liveable,<br />sustainable &<br />affordable.
@@ -125,7 +125,7 @@ export default function Home() {
         >
           <div className="absolute inset-0 bg-gradient-to-r from-navy via-transparent to-navy z-10 pointer-events-none w-full" />
           <motion.div
-            className="flex whitespace-nowrap text-white/90 text-5xl md:text-7xl font-bold tracking-tighter uppercase"
+            className="flex whitespace-nowrap text-white/90 text-3xl md:text-7xl font-bold tracking-tighter uppercase"
             animate={{ x: ["0%", "-50%"] }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           >
@@ -156,14 +156,14 @@ export default function Home() {
           </div>
 
           {/* Satisfied Clients Card */}
-          <div className="w-full lg:w-[65%] bg-white rounded-[2.5rem] p-10 lg:p-16 flex flex-col justify-center relative min-h-[500px] lg:min-h-[600px] overflow-hidden">
-            <div className="lg:absolute top-12 right-12 lg:text-right mb-10 lg:mb-0 z-10">
+          <div className="w-full lg:w-[65%] bg-white rounded-[2rem] lg:rounded-[2.5rem] p-8 lg:p-16 flex flex-col justify-center relative min-h-[400px] lg:min-h-[600px] overflow-hidden">
+            <div className="lg:absolute top-12 right-12 lg:text-right mb-8 lg:mb-0 z-10">
               <span className="text-navy/60 text-sm font-semibold block mb-2">Satisfied Clients</span>
-              <h3 className="text-4xl font-bold tracking-tight">8.4M+</h3>
+              <h3 className="text-3xl lg:text-4xl font-bold tracking-tight">8.4M+</h3>
             </div>
 
             <div className="max-w-2xl mt-4 z-10">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.1] mb-8">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.1] mb-6 md:mb-8">
                 We can bring to life everything you've ever envisioned and dreamed of — your ideals and desires are our creations.
               </h2>
               <p className="text-navy/70 text-base leading-relaxed mb-10 max-w-lg">
@@ -186,9 +186,9 @@ export default function Home() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeInUp}
-          className="bg-white rounded-[2.5rem] p-10 lg:p-16 flex flex-col"
+          className="bg-white rounded-[2rem] lg:rounded-[2.5rem] p-8 lg:p-16 flex flex-col"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight mb-12">Our Process</h2>
+          <h2 className="text-3xl lg:text-5xl font-bold tracking-tight mb-8 lg:mb-12">Our Process</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
               { num: "01", title: "Discover", text: "We start by understanding your vision, lifestyle, and the unique characteristics of the site." },
@@ -198,11 +198,11 @@ export default function Home() {
             ].map((step, idx) => (
               <motion.div
                 key={step.num}
-                className="bg-[#f8f9fa] rounded-[2rem] p-8 flex flex-col h-full hover:bg-navy hover:text-white transition-colors duration-500 group"
+                className="bg-[#f8f9fa] rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 flex flex-col h-full hover:bg-navy hover:text-white transition-colors duration-500 group"
                 whileHover={{ y: -10 }}
               >
-                <span className="text-3xl font-light text-navy/30 group-hover:text-white/30 mb-8 block transition-colors">{step.num}</span>
-                <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
+                <span className="text-2xl md:text-3xl font-light text-navy/30 group-hover:text-white/30 mb-6 md:mb-8 block transition-colors">{step.num}</span>
+                <h3 className="text-xl md:text-2xl font-bold mb-4">{step.title}</h3>
                 <p className="text-sm leading-relaxed text-navy/70 group-hover:text-white/70 transition-colors">{step.text}</p>
               </motion.div>
             ))}
@@ -215,9 +215,9 @@ export default function Home() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeInUp}
-          className="bg-white rounded-[2.5rem] p-10 lg:p-16"
+          className="bg-white rounded-[2rem] lg:rounded-[2.5rem] p-8 lg:p-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold mb-12 tracking-tight">Services</h2>
+          <h2 className="text-3xl lg:text-5xl font-bold mb-8 lg:mb-12 tracking-tight">Services</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -227,16 +227,16 @@ export default function Home() {
             ].map((service, i) => (
               <div
                 key={i}
-                className={`rounded-[2rem] p-8 flex flex-col h-full min-h-[350px] transition-transform duration-500 hover:-translate-y-2 relative overflow-hidden ${service.dark ? 'bg-navy text-white' : 'bg-[#f8f9fa] text-navy'}`}
+                className={`rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 flex flex-col h-full min-h-[300px] md:min-h-[350px] transition-transform duration-500 hover:-translate-y-2 relative overflow-hidden ${service.dark ? 'bg-navy text-white' : 'bg-[#f8f9fa] text-navy'}`}
               >
                 <motion.span
                   animate={service.dark ? { y: [0, -10, 0] } : {}}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: i * 0.5 }}
-                  className={`text-xl font-light self-end mb-12 ${service.dark ? 'text-accent' : ''}`}
+                  className={`text-lg md:text-xl font-light self-end mb-8 md:mb-12 ${service.dark ? 'text-accent' : ''}`}
                 >
                   {service.id}
                 </motion.span>
-                <h3 className="text-3xl font-semibold mb-6 whitespace-pre-line leading-tight relative z-10">{service.title}</h3>
+                <h3 className="text-2xl md:text-3xl font-semibold mb-4 md:mb-6 whitespace-pre-line leading-tight relative z-10">{service.title}</h3>
                 <p className={`text-sm leading-relaxed mt-auto relative z-10 ${service.dark ? 'text-white/80' : 'text-navy/70'}`}>
                   {service.desc}
                 </p>

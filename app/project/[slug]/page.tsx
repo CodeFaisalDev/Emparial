@@ -29,7 +29,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
       <div className="pt-32 pb-16">
         {/* Header Title */}
         <div className="px-4 max-w-[1600px] mx-auto mb-12">
-          <h1 className="text-[4rem] md:text-[6rem] lg:text-[7rem] font-bold tracking-tighter leading-[0.9]">
+          <h1 className="text-[3rem] md:text-[6rem] lg:text-[7rem] font-bold tracking-tighter leading-[0.9]">
             {project.title}
           </h1>
           <div className="flex flex-wrap gap-4 mt-8">
@@ -44,7 +44,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
 
         {/* Massive Hero Image */}
         <div className="px-4 max-w-[1600px] mx-auto mb-20">
-          <div className="w-full h-[60vh] md:h-[80vh] relative rounded-[2.5rem] overflow-hidden">
+          <div className="w-full h-[60vh] md:h-[80vh] relative rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden">
             <Image 
               src={project.coverImage} 
               alt={project.title} 
@@ -60,8 +60,8 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
           
           {/* Sticky Stats Sidebar */}
           <div className="lg:col-span-4">
-            <div className="sticky top-40 bg-white rounded-[2.5rem] p-10 text-navy">
-              <h3 className="text-xl font-bold mb-8">Project Details</h3>
+            <div className="sticky top-40 bg-white rounded-[1.5rem] md:rounded-[2.5rem] p-6 md:p-10 text-navy">
+              <h3 className="text-xl font-bold mb-6 md:mb-8">Project Details</h3>
               <div className="flex flex-col gap-6">
                 <div className="border-b border-navy/10 pb-4">
                   <span className="text-navy/50 text-sm font-semibold uppercase tracking-wider block mb-1">Year</span>
@@ -87,8 +87,8 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
 
           {/* Main Description */}
           <div className="lg:col-span-8">
-            <div className="bg-white rounded-[2.5rem] p-10 lg:p-16 text-navy h-full">
-              <h2 className="text-3xl font-bold mb-8 tracking-tight">Concept & Execution</h2>
+            <div className="bg-white rounded-[1.5rem] md:rounded-[2.5rem] p-6 md:p-10 lg:p-16 text-navy h-full">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 tracking-tight">Concept & Execution</h2>
               <p className="text-navy/80 text-lg leading-relaxed whitespace-pre-line">
                 {project.fullDescription}
               </p>
@@ -98,13 +98,13 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
 
         {/* Image Gallery */}
         <div className="px-4 max-w-[1600px] mx-auto mb-32">
-          <h2 className="text-3xl font-bold mb-10 tracking-tight text-white px-4">Gallery</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-10 tracking-tight text-white px-4">Gallery</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {project.gallery.map((img, i) => (
               <div 
                 key={i} 
-                className={`relative rounded-[2.5rem] overflow-hidden ${
-                  i === 0 ? "md:col-span-2 h-[500px] lg:h-[700px]" : "h-[400px] lg:h-[500px]"
+                className={`relative rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden ${
+                  i === 0 ? "md:col-span-2 h-[300px] md:h-[500px] lg:h-[700px]" : "h-[250px] md:h-[400px] lg:h-[500px]"
                 }`}
               >
                 <Image src={img} alt={`Gallery ${i+1}`} fill className="object-cover" />
@@ -115,10 +115,10 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
 
         {/* Next Project Banner */}
         <div className="px-4 max-w-[1600px] mx-auto mb-16">
-          <Link href={`/project/${nextProject.slug}`} className="block group relative bg-white rounded-[2.5rem] p-12 lg:p-24 overflow-hidden">
+          <Link href={`/project/${nextProject.slug}`} className="block group relative bg-white rounded-[1.5rem] md:rounded-[2.5rem] p-8 md:p-12 lg:p-24 overflow-hidden">
             <div className="relative z-10 text-navy flex flex-col items-center text-center">
               <span className="text-navy/60 text-sm font-semibold uppercase tracking-wider mb-4 block">Next Project</span>
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-8 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r from-navy to-navy/50 transition-colors duration-500">
+              <h2 className="text-3xl md:text-6xl font-bold tracking-tight mb-8 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r from-navy to-navy/50 transition-colors duration-500">
                 {nextProject.title}
               </h2>
               <Magnetic>

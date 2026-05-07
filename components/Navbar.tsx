@@ -57,7 +57,7 @@ export default function Navbar() {
           
           {/* Exact Logo from Design */}
           <div className="flex-1">
-            <Link href="/" onClick={closeMenu} className={`text-[1.75rem] font-bold tracking-tight transition-colors duration-500 ${scrolled ? 'text-navy' : 'text-white mix-blend-difference'}`}>
+            <Link href="/" onClick={closeMenu} className={`text-2xl md:text-[1.75rem] font-bold tracking-tight transition-colors duration-500 ${scrolled ? 'text-navy' : 'text-white mix-blend-difference'}`}>
               Emparial
             </Link>
           </div>
@@ -123,7 +123,7 @@ export default function Navbar() {
                   <Link 
                     href={link.href} 
                     onClick={closeMenu}
-                    className={`text-4xl font-bold tracking-tight transition-colors ${pathname === link.href ? 'text-white' : 'text-white/50 hover:text-white/80'}`}
+                    className={`text-3xl md:text-4xl font-bold tracking-tight transition-colors ${pathname === link.href ? 'text-white' : 'text-white/50 hover:text-white/80'}`}
                   >
                     {link.name}
                   </Link>
