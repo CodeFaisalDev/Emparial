@@ -7,39 +7,40 @@ import Image from "next/image";
 import Magnetic from "@/components/Magnetic";
 import Link from "next/link";
 import { projects } from "@/data/projects";
+import Reveal from "@/components/Reveal";
 
 export default function ProjectPage() {
   const featuredProject = projects.find(p => p.featured) || projects[0];
   const gridProjects = projects.filter(p => !p.featured);
 
   const fadeInUp = {
-    hidden: { opacity: 0, y: 60, scale: 0.95 },
-    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 1.2, ease: [0.85, 0, 0.15, 1] as const } }
+    hidden: { opacity: 0, y: 40, scale: 0.98 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1, 
+      transition: { duration: 1.2, ease: [0.85, 0, 0.15, 1] as const } 
+    }
   };
 
   return (
     <PageTransition>
-      <div className="px-4 pt-32 pb-16 flex flex-col gap-6 max-w-[1600px] mx-auto">
+      <div className="px-4 pt-24 sm:pt-32 pb-16 flex flex-col gap-6 max-w-[1600px] mx-auto">
         
         {/* Header Section */}
-        <motion.div 
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUp}
-          className="bg-white rounded-[2.5rem] p-10 lg:p-20 relative overflow-hidden group"
-        >
+        <Reveal className="bg-white rounded-[2rem] sm:rounded-[2.5rem] p-8 sm:p-12 lg:p-20 relative overflow-hidden group">
           <div className="relative z-10">
-            <h1 className="text-[3.5rem] md:text-[5rem] font-bold tracking-tighter leading-[1] mb-8">
+            <h1 className="text-[2.5rem] sm:text-[4rem] md:text-[5rem] font-bold tracking-tighter leading-[1] mb-8">
               Selected<br />Projects
             </h1>
-            <p className="text-navy/70 text-lg max-w-2xl leading-relaxed">
+            <p className="text-navy/70 text-base sm:text-lg max-w-2xl leading-relaxed font-light">
               Discover a curated selection of our finest architectural endeavors. From avant-garde residential homes to sustainable urban developments, each project represents our commitment to exceptional design and craftsmanship.
             </p>
           </div>
-          <div className="absolute right-0 top-0 w-1/2 h-full opacity-10 group-hover:scale-105 transition-transform duration-1000 z-0">
+          <div className="absolute right-0 top-0 w-1/2 h-full opacity-10 group-hover:scale-105 transition-transform duration-1000 z-0 hidden sm:block">
             <Image src="/images/main.png" alt="Projects bg" fill className="object-cover" />
           </div>
-        </motion.div>
+        </Reveal>
 
         {/* Featured Case Study */}
         <motion.div 
@@ -49,19 +50,21 @@ export default function ProjectPage() {
           variants={fadeInUp}
           className="grid grid-cols-1 lg:grid-cols-2 gap-6"
         >
-          <div className="bg-white rounded-[2.5rem] p-10 lg:p-16 flex flex-col justify-center">
-            <span className="text-navy/60 text-sm font-semibold mb-4">Featured Work</span>
-            <h2 className="text-4xl lg:text-5xl font-bold tracking-tight mb-8">{featuredProject.title}</h2>
-            <p className="text-navy/70 text-base leading-relaxed mb-10">
+          <div className="bg-white rounded-[2rem] sm:rounded-[2.5rem] p-8 sm:p-12 lg:p-16 flex flex-col justify-center">
+            <span className="text-navy/60 text-xs sm:text-sm font-semibold mb-4 uppercase tracking-widest">Featured Work</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-8">{featuredProject.title}</h2>
+            <p className="text-navy/70 text-sm sm:text-base leading-relaxed mb-10 font-light">
               {featuredProject.shortDescription}
             </p>
-            <Magnetic className="self-start">
-              <Link href={`/project/${featuredProject.slug}`} className="bg-navy text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-navy/90 transition-colors tracking-wide inline-block">
-                View Case Study
-              </Link>
-            </Magnetic>
+            <div className="self-start">
+              <Magnetic>
+                <Link href={`/project/${featuredProject.slug}`} className="bg-navy text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-navy/80 transition-all tracking-wide inline-block">
+                  View Case Study
+                </Link>
+              </Magnetic>
+            </div>
           </div>
-          <Link href={`/project/${featuredProject.slug}`} className="block h-[400px] lg:h-auto min-h-[500px] rounded-[2.5rem] overflow-hidden relative group">
+          <Link href={`/project/${featuredProject.slug}`} className="block h-[300px] sm:h-[400px] lg:h-auto min-h-[400px] sm:min-h-[500px] rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden relative group">
             <Image 
               src={featuredProject.coverImage} 
               alt={featuredProject.title} 
@@ -78,15 +81,15 @@ export default function ProjectPage() {
           viewport={{ once: true, margin: "-100px" }}
           variants={{
             hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+            visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
           }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {gridProjects.map((project, i) => (
             <motion.div key={project.id} variants={fadeInUp}>
               <Link 
                 href={`/project/${project.slug}`}
-                className={`${project.heightClass || 'h-[500px]'} block rounded-[2.5rem] overflow-hidden relative group cursor-pointer ${i % 2 === 1 ? 'md:mt-12' : ''}`}
+                className={`${project.heightClass || 'h-[400px] sm:h-[500px]'} block rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden relative group cursor-pointer ${i % 2 === 1 ? 'md:mt-12' : ''}`}
               >
               <Image 
                 src={project.coverImage} 
@@ -95,9 +98,9 @@ export default function ProjectPage() {
                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute bottom-0 left-0 w-full p-10 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                <span className="text-white/80 text-sm font-medium block mb-2">{project.category}</span>
-                <h3 className="text-white text-3xl font-bold">{project.title}</h3>
+              <div className="absolute bottom-0 left-0 w-full p-8 sm:p-10 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                <span className="text-white/80 text-xs sm:text-sm font-medium block mb-2 uppercase tracking-wider">{project.category}</span>
+                <h3 className="text-white text-2xl sm:text-3xl font-bold">{project.title}</h3>
               </div>
               </Link>
             </motion.div>
@@ -105,20 +108,14 @@ export default function ProjectPage() {
         </motion.div>
 
         {/* Call to Action */}
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeInUp}
-          className="bg-navy rounded-[2.5rem] p-12 lg:p-24 text-center mt-12 flex flex-col items-center"
-        >
-          <h2 className="text-white text-4xl lg:text-5xl font-bold tracking-tight mb-8">Ready to start your project?</h2>
+        <Reveal className="bg-navy rounded-[2rem] sm:rounded-[2.5rem] p-8 sm:p-12 lg:p-24 text-center mt-12 flex flex-col items-center">
+          <h2 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-8">Ready to start your project?</h2>
           <Magnetic>
             <button className="bg-white text-navy px-10 py-4 rounded-full text-sm font-bold hover:bg-white/90 transition-colors tracking-wide">
               Let's Talk
             </button>
           </Magnetic>
-        </motion.div>
+        </Reveal>
 
       </div>
       <Footer />
