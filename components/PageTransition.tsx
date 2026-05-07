@@ -48,7 +48,7 @@ export default function PageTransition({ children }: { children: React.ReactNode
     exit: {
       opacity: 0,
       y: -20,
-      transition: { duration: 0.4, ease: "easeInOut" }
+      transition: { duration: 0.4, ease: "easeInOut" as const }
     }
   };
 
@@ -77,7 +77,7 @@ export default function PageTransition({ children }: { children: React.ReactNode
             {isFirstMount && (
               <motion.div
                 className="absolute inset-0 flex items-center justify-center z-[101]"
-                exit={{ opacity: 0, scale: 1.2, filter: "blur(20px)", transition: { duration: 0.8, ease: "easeInOut" } }}
+                exit={{ opacity: 0, scale: 1.2, filter: "blur(20px)", transition: { duration: 0.8, ease: "easeInOut" as const } }}
               >
                 <div className="flex gap-1 sm:gap-2">
                   {brandName.split("").map((char, i) => (
@@ -105,7 +105,7 @@ export default function PageTransition({ children }: { children: React.ReactNode
                     className="h-full bg-white"
                     initial={{ x: "-100%" }}
                     animate={{ x: "0%" }}
-                    transition={{ duration: 1.5, ease: "easeInOut", delay: 0.5 }}
+                    transition={{ duration: 1.5, ease: "easeInOut" as const, delay: 0.5 }}
                   />
                 </motion.div>
               </motion.div>
